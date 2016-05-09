@@ -10,6 +10,8 @@
 #import "PrefixHeader.pch"
 //#import "Home_FunctionButton.h"
 #import "HomeViewCell.h"
+#import "HomeViewCell_6.h"
+#import "HomeViewCell_6p.h"
 
 @interface HomeController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -113,9 +115,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HomeViewCell *cell = [[HomeViewCell alloc] init];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    if (SCREEN_HEIGHT == 667) {
+        
+        HomeViewCell_6 *cell = [[HomeViewCell_6 alloc] init];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else if (SCREEN_HEIGHT == 736){
+        HomeViewCell_6p *cell = [[HomeViewCell_6p alloc] init];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    else{
+        HomeViewCell *cell = [[HomeViewCell alloc] init];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -18,6 +18,7 @@
         
         [self setValuesForKeysWithDictionary:item];
         _header = [NSString stringWithFormat:@"%c",[[PinYinForObjc chineseConvertToPinYin:_name] characterAtIndex:0]];
+        _nameHeader = [NSString stringWithFormat:@"%@",[PinYinForObjc chineseConvertToPinYin:_name]];
     }
     return self;
     

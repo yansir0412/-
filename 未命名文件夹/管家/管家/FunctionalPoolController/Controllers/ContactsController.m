@@ -19,10 +19,11 @@
     UITableView *_tableView;
     NSMutableArray *_dataArray;
     NSMutableArray *_tidyArray;
-    UIView *_searchBar;
     UISearchController *_searchController;
+    UISearchBar *_searchBar;
     NSMutableArray *_seatchResultArray;
 }
+@property (nonatomic,assign)BOOL isSearch;
 
 @end
 
@@ -36,6 +37,7 @@
     
     _dataArray = [[NSMutableArray alloc] init];
     _tidyArray = [[NSMutableArray alloc] init];
+    _seatchResultArray = [NSMutableArray new];
     
     NSArray *headerArray = @[@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z"];
     
@@ -48,7 +50,7 @@
         [_tidyArray addObject:model];
         
     }
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self createData];
     [self createSubView];
 }
@@ -111,38 +113,43 @@
 
 - (void)createSubView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, self.view.bounds.size.height - 64) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, self.view.bounds.size.height - 64 - 44) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.backgroundColor = [UIColor orangeColor];
     
     [self.view addSubview:_tableView];
     
-    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    _searchController.dimsBackgroundDuringPresentation = NO;
-//    _searchController.hidesNavigationBarDuringPresentation = YES;
+    _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
+    _searchBar.delegate = self;
+    _searchBar.placeholder = @"请输入查找内容";
+    [self.view addSubview:_searchBar];
+//    _searchBar.showsCancelButton = NO;
     
-    _searchController.searchBar.placeholder = @"请输入查找内容";
-    
-    _searchController.searchResultsUpdater = self;
-    _searchController.searchBar.delegate = self;
-    _searchController.delegate = self;
-    [_searchController.searchBar sizeToFit];
-        _searchController.searchBar.frame = CGRectMake(0, 0, SCREEN_WIDTH, 44);
-        [self.view addSubview:_searchController.searchBar];
+//    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+//    _searchController.dimsBackgroundDuringPresentation = NO;
+////    _searchController.hidesNavigationBarDuringPresentation = YES;
+//    
+//    _searchController.searchBar.placeholder = @"请输入查找内容";
+//    
+//    _searchController.searchResultsUpdater = self;
+//    _searchController.searchBar.delegate = self;
+//    _searchController.delegate = self;
+//    [_searchController.searchBar sizeToFit];
+//        _searchController.searchBar.frame = CGRectMake(0, 0, SCREEN_WIDTH, 44);
+//        [self.view addSubview:_searchController.searchBar];
     
 //    _tableView.tableHeaderView = _searchController.searchBar;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-        return _searchController.active? 1 : _tidyArray.count;
+        return _isSearch? 1 : _tidyArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
         tidyModel *model = _tidyArray[section];
-        return _searchController.active? _seatchResultArray.count : model.listArray.count;
+        return _isSearch? _seatchResultArray.count : model.listArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -156,7 +163,7 @@
     
     cell.textLabel.font = [UIFont systemFontOfSize:14];
     
-    if (_searchController.active) {
+    if (_isSearch) {
         
         ContactsModel *seatchModel = _seatchResultArray[indexPath.row];
         cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",seatchModel.name,seatchModel.deptName];
@@ -188,7 +195,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return _searchController.active? 0: 15;
+    return _isSearch? 0: 15;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -244,18 +251,55 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    
+    [UIView animateWithDuration:0.3 animations:^{
+        _searchBar.frame = CGRectMake(0, 0, SCREEN_WIDTH, 44);
+        _tableView.frame = CGRectMake(0, 44, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 44);
+        self.navigationController.navigationBarHidden = NO;
+        _searchBar.showsCancelButton = NO;
+        [_searchBar resignFirstResponder];
+        searchBar.text = @"";
+        _isSearch = NO;
+        [_tableView reloadData];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        
+    }];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    
+    [UIView animateWithDuration:0.3 animations:^{
+        _searchBar.frame = CGRectMake(0, 20, SCREEN_WIDTH, 44);
+        _tableView.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64);
+        self.navigationController.navigationBarHidden = YES;
+        _searchBar.showsCancelButton = YES;
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    }];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name CONTAINS [c]%@",searchText];
+    NSPredicate *predicatePin = [NSPredicate predicateWithFormat:@"SELF.nameHeader CONTAINS [cd]%@",searchText];
+    [_seatchResultArray removeAllObjects];
+    
+    NSArray *ary = [NSArray new];
+    
+    ary = [NSMutableArray arrayWithArray:[_dataArray filteredArrayUsingPredicate:predicate]];
+    if (ary.count == 0) {
+        ary = [NSMutableArray arrayWithArray:[_dataArray filteredArrayUsingPredicate:predicatePin]];
+    }
+    if (searchText.length == 0) {
+        _isSearch = NO;
+        [_seatchResultArray addObjectsFromArray:_tidyArray];
+    }else{
+        _isSearch = YES;
+        [_seatchResultArray addObjectsFromArray:ary];
+    }
+    [_tableView reloadData];
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

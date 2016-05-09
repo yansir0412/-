@@ -15,6 +15,7 @@
 @property (nonatomic,copy)NSString *tel;
 @property (nonatomic,copy)NSString *header;
 @property (nonatomic,copy)NSString *deptName;
+@property (nonatomic,copy)NSString *nameHeader;
 
 - (instancetype)initWithDictionary:(NSDictionary *)item;
 + (instancetype)listWithDictionary:(NSDictionary *)item;

@@ -23,6 +23,7 @@
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
     self.window.rootViewController = rootTabBarController;
+    self.window.backgroundColor = [UIColor whiteColor];
     
     return YES;
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041EED251CDF679900DF6D8B /* HomeViewCell_6.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED231CDF679900DF6D8B /* HomeViewCell_6.m */; };
+		041EED261CDF679900DF6D8B /* HomeViewCell_6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041EED241CDF679900DF6D8B /* HomeViewCell_6.xib */; };
+		041EED2A1CE0249100DF6D8B /* HomeViewCell_6p.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED281CE0249100DF6D8B /* HomeViewCell_6p.m */; };
+		041EED2B1CE0249100DF6D8B /* HomeViewCell_6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041EED291CE0249100DF6D8B /* HomeViewCell_6p.xib */; };
 		044F02AD1CD84D680004D619 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02AC1CD84D680004D619 /* main.m */; };
 		044F02B01CD84D680004D619 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02AF1CD84D680004D619 /* AppDelegate.m */; };
 		044F02B31CD84D680004D619 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02B21CD84D680004D619 /* ViewController.m */; };
@@ -122,6 +126,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041EED221CDF679900DF6D8B /* HomeViewCell_6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewCell_6.h; sourceTree = "<group>"; };
+		041EED231CDF679900DF6D8B /* HomeViewCell_6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewCell_6.m; sourceTree = "<group>"; };
+		041EED241CDF679900DF6D8B /* HomeViewCell_6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewCell_6.xib; sourceTree = "<group>"; };
+		041EED271CE0249100DF6D8B /* HomeViewCell_6p.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewCell_6p.h; sourceTree = "<group>"; };
+		041EED281CE0249100DF6D8B /* HomeViewCell_6p.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewCell_6p.m; sourceTree = "<group>"; };
+		041EED291CE0249100DF6D8B /* HomeViewCell_6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewCell_6p.xib; sourceTree = "<group>"; };
 		044F02A81CD84D680004D619 /* 管家.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "管家.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		044F02AC1CD84D680004D619 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		044F02AE1CD84D680004D619 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -413,6 +423,12 @@
 			children = (
 				044F03951CD8AA940004D619 /* Home_FunctionButton.h */,
 				044F03961CD8AA940004D619 /* Home_FunctionButton.m */,
+				041EED221CDF679900DF6D8B /* HomeViewCell_6.h */,
+				041EED231CDF679900DF6D8B /* HomeViewCell_6.m */,
+				041EED241CDF679900DF6D8B /* HomeViewCell_6.xib */,
+				041EED271CE0249100DF6D8B /* HomeViewCell_6p.h */,
+				041EED281CE0249100DF6D8B /* HomeViewCell_6p.m */,
+				041EED291CE0249100DF6D8B /* HomeViewCell_6p.xib */,
 				044F03981CD8DAFB0004D619 /* HomeViewCell.h */,
 				044F03991CD8DAFB0004D619 /* HomeViewCell.m */,
 				044F039A1CD8DAFB0004D619 /* HomeViewCell.xib */,
@@ -757,6 +773,7 @@
 				044F02B61CD84D680004D619 /* Main.storyboard in Resources */,
 				044F03501CD870B80004D619 /* 主页点击后.png in Resources */,
 				044F03851CD870B80004D619 /* 评价.png in Resources */,
+				041EED2B1CE0249100DF6D8B /* HomeViewCell_6p.xib in Resources */,
 				044F03651CD870B80004D619 /* 房租催缴.png in Resources */,
 				044F03671CD870B80004D619 /* 扫一扫 (2).png in Resources */,
 				044F03531CD870B80004D619 /* 分割线.png in Resources */,
@@ -765,6 +782,7 @@
 				044F035B1CD870B80004D619 /* 导航-icon.png in Resources */,
 				044F03561CD870B80004D619 /* 合同.png in Resources */,
 				044F03681CD870B80004D619 /* 扫一扫.png in Resources */,
+				041EED261CDF679900DF6D8B /* HomeViewCell_6.xib in Resources */,
 				044F03701CD870B80004D619 /* 日历导航.png in Resources */,
 				044F03581CD870B80004D619 /* 备忘录 (2).png in Resources */,
 				044F03551CD870B80004D619 /* 功能区点击状态.png in Resources */,
@@ -843,6 +861,7 @@
 				044F03971CD8AA940004D619 /* Home_FunctionButton.m in Sources */,
 				044F03A61CDAF28D0004D619 /* HttpRequest.m in Sources */,
 				044F03AA1CDAF5490004D619 /* ContactsModel.m in Sources */,
+				041EED251CDF679900DF6D8B /* HomeViewCell_6.m in Sources */,
 				044F03A71CDAF28D0004D619 /* NSString+URLCode.m in Sources */,
 				044F038F1CD87BE50004D619 /* FunctionalButton.m in Sources */,
 				044F03A11CDAE5700004D619 /* ContactsController.m in Sources */,
@@ -854,6 +873,7 @@
 				044F03941CD89A1D0004D619 /* MineButton.m in Sources */,
 				044F02F61CD851550004D619 /* MainViewController.m in Sources */,
 				044F02B01CD84D680004D619 /* AppDelegate.m in Sources */,
+				041EED2A1CE0249100DF6D8B /* HomeViewCell_6p.m in Sources */,
 				044F02F31CD8512A0004D619 /* MainTabBarController.m in Sources */,
 				044F02AD1CD84D680004D619 /* main.m in Sources */,
 				044F02ED1CD8501B0004D619 /* NavgationController.m in Sources */,
