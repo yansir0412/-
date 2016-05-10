@@ -11,6 +11,11 @@
 		041EED261CDF679900DF6D8B /* HomeViewCell_6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041EED241CDF679900DF6D8B /* HomeViewCell_6.xib */; };
 		041EED2A1CE0249100DF6D8B /* HomeViewCell_6p.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED281CE0249100DF6D8B /* HomeViewCell_6p.m */; };
 		041EED2B1CE0249100DF6D8B /* HomeViewCell_6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041EED291CE0249100DF6D8B /* HomeViewCell_6p.xib */; };
+		041EED2E1CE0378800DF6D8B /* ProtocolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED2D1CE0378800DF6D8B /* ProtocolController.m */; };
+		041EED311CE0606100DF6D8B /* StringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED301CE0606100DF6D8B /* StringSize.m */; };
+		041EED5F1CE082A700DF6D8B /* ProtocolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED5D1CE082A700DF6D8B /* ProtocolCell.m */; };
+		041EED601CE082A700DF6D8B /* ProtocolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041EED5E1CE082A700DF6D8B /* ProtocolCell.xib */; };
+		041EED631CE182DB00DF6D8B /* ProtocolPurchaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED621CE182DB00DF6D8B /* ProtocolPurchaseModel.m */; };
 		044F02AD1CD84D680004D619 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02AC1CD84D680004D619 /* main.m */; };
 		044F02B01CD84D680004D619 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02AF1CD84D680004D619 /* AppDelegate.m */; };
 		044F02B31CD84D680004D619 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02B21CD84D680004D619 /* ViewController.m */; };
@@ -132,6 +137,15 @@
 		041EED271CE0249100DF6D8B /* HomeViewCell_6p.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewCell_6p.h; sourceTree = "<group>"; };
 		041EED281CE0249100DF6D8B /* HomeViewCell_6p.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewCell_6p.m; sourceTree = "<group>"; };
 		041EED291CE0249100DF6D8B /* HomeViewCell_6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewCell_6p.xib; sourceTree = "<group>"; };
+		041EED2C1CE0378800DF6D8B /* ProtocolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolController.h; sourceTree = "<group>"; };
+		041EED2D1CE0378800DF6D8B /* ProtocolController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolController.m; sourceTree = "<group>"; };
+		041EED2F1CE0606100DF6D8B /* StringSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringSize.h; sourceTree = "<group>"; };
+		041EED301CE0606100DF6D8B /* StringSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringSize.m; sourceTree = "<group>"; };
+		041EED5C1CE082A700DF6D8B /* ProtocolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolCell.h; sourceTree = "<group>"; };
+		041EED5D1CE082A700DF6D8B /* ProtocolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolCell.m; sourceTree = "<group>"; };
+		041EED5E1CE082A700DF6D8B /* ProtocolCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProtocolCell.xib; sourceTree = "<group>"; };
+		041EED611CE182DB00DF6D8B /* ProtocolPurchaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolPurchaseModel.h; sourceTree = "<group>"; };
+		041EED621CE182DB00DF6D8B /* ProtocolPurchaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolPurchaseModel.m; sourceTree = "<group>"; };
 		044F02A81CD84D680004D619 /* 管家.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "管家.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		044F02AC1CD84D680004D619 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		044F02AE1CD84D680004D619 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -368,6 +382,8 @@
 				044F02F81CD852040004D619 /* FunctionalPoolController.m */,
 				044F039F1CDAE5700004D619 /* ContactsController.h */,
 				044F03A01CDAE5700004D619 /* ContactsController.m */,
+				041EED2C1CE0378800DF6D8B /* ProtocolController.h */,
+				041EED2D1CE0378800DF6D8B /* ProtocolController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -379,6 +395,8 @@
 				044F03A91CDAF5490004D619 /* ContactsModel.m */,
 				044F03AB1CDB2C0D0004D619 /* tidyModel.h */,
 				044F03AC1CDB2C0D0004D619 /* tidyModel.m */,
+				041EED611CE182DB00DF6D8B /* ProtocolPurchaseModel.h */,
+				041EED621CE182DB00DF6D8B /* ProtocolPurchaseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -388,6 +406,9 @@
 			children = (
 				044F038D1CD87BE50004D619 /* FunctionalButton.h */,
 				044F038E1CD87BE50004D619 /* FunctionalButton.m */,
+				041EED5C1CE082A700DF6D8B /* ProtocolCell.h */,
+				041EED5D1CE082A700DF6D8B /* ProtocolCell.m */,
+				041EED5E1CE082A700DF6D8B /* ProtocolCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -504,6 +525,8 @@
 				044F03A31CDAF28D0004D619 /* HttpRequest.m */,
 				044F03A41CDAF28D0004D619 /* NSString+URLCode.h */,
 				044F03A51CDAF28D0004D619 /* NSString+URLCode.m */,
+				041EED2F1CE0606100DF6D8B /* StringSize.h */,
+				041EED301CE0606100DF6D8B /* StringSize.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -783,6 +806,7 @@
 				044F03561CD870B80004D619 /* 合同.png in Resources */,
 				044F03681CD870B80004D619 /* 扫一扫.png in Resources */,
 				041EED261CDF679900DF6D8B /* HomeViewCell_6.xib in Resources */,
+				041EED601CE082A700DF6D8B /* ProtocolCell.xib in Resources */,
 				044F03701CD870B80004D619 /* 日历导航.png in Resources */,
 				044F03581CD870B80004D619 /* 备忘录 (2).png in Resources */,
 				044F03551CD870B80004D619 /* 功能区点击状态.png in Resources */,
@@ -862,10 +886,13 @@
 				044F03A61CDAF28D0004D619 /* HttpRequest.m in Sources */,
 				044F03AA1CDAF5490004D619 /* ContactsModel.m in Sources */,
 				041EED251CDF679900DF6D8B /* HomeViewCell_6.m in Sources */,
+				041EED631CE182DB00DF6D8B /* ProtocolPurchaseModel.m in Sources */,
 				044F03A71CDAF28D0004D619 /* NSString+URLCode.m in Sources */,
 				044F038F1CD87BE50004D619 /* FunctionalButton.m in Sources */,
+				041EED2E1CE0378800DF6D8B /* ProtocolController.m in Sources */,
 				044F03A11CDAE5700004D619 /* ContactsController.m in Sources */,
 				044F03DD1CDB53600004D619 /* PinYinForObjc.m in Sources */,
+				041EED311CE0606100DF6D8B /* StringSize.m in Sources */,
 				044F03AD1CDB2C0D0004D619 /* tidyModel.m in Sources */,
 				044F03041CD8529C0004D619 /* YX_Tabbar.m in Sources */,
 				044F02FC1CD8521A0004D619 /* HomeController.m in Sources */,
@@ -875,6 +902,7 @@
 				044F02B01CD84D680004D619 /* AppDelegate.m in Sources */,
 				041EED2A1CE0249100DF6D8B /* HomeViewCell_6p.m in Sources */,
 				044F02F31CD8512A0004D619 /* MainTabBarController.m in Sources */,
+				041EED5F1CE082A700DF6D8B /* ProtocolCell.m in Sources */,
 				044F02AD1CD84D680004D619 /* main.m in Sources */,
 				044F02ED1CD8501B0004D619 /* NavgationController.m in Sources */,
 				044F039B1CD8DAFB0004D619 /* HomeViewCell.m in Sources */,

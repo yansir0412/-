@@ -9,6 +9,7 @@
 #import "FunctionalPoolController.h"
 #import "FunctionalButton.h"
 #import "PrefixHeader.pch"
+#import "ProtocolController.h"
 
 #import "ContactsController.h"
 
@@ -159,7 +160,8 @@
         
     }else if ([button.titleLabel.text isEqualToString:self.nameArray[1]])
     {
-        NSLog(@"1");
+        ProtocolController *protocolController = [[ProtocolController alloc] init];
+        [self.navigationController pushViewController:protocolController animated:YES];
     }else if ([button.titleLabel.text isEqualToString:self.nameArray[2]])
     {
         NSLog(@"2");
