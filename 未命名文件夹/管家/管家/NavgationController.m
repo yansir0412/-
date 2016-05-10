@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)backButtonClick:(UIBarButtonItem *)barButtonItem

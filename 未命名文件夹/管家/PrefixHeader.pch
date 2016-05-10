@@ -12,12 +12,21 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #import "StringSize.h"
-
+#import "HttpRequest.h"
 //通讯录默认
 #define CONTACTS_URL @"http://123.206.72.17:6022/user/querylist"
 //拖进合同
+//列表
 #define ProtocolEnter_URL @"http://123.206.72.17:6037/purchase/querylist/pin.%@/page.0/pageSize.10"
-
+//详情
+#define ProtocolEnterDetail_URL @"http://123.206.72.17:6037/purchase/queryobject/purchaseNo.%@"
+//拖出合同
+//列表
+#define ProtocolRentPact_URL @"http://123.206.72.17:6038/rentpact/querylist/pin.%@/page.0/pageSize.10"
+//详情
+#define ProtocolRentPactDetail_URL @"http://123.206.72.17:6038/rentpact/queryobject/rentpactNo.%@"
+//预订合同
+#define ProtocolReserve_URL @"http://123.206.72.17:6043/reserve/querylist/pin.%@/page.0/pageSize.10?keywords="
 
 #define PrefixHeader_pch
 // Include any system framework and library headers here that should be included in all compilation units.

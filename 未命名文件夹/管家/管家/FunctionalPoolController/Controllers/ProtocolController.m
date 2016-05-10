@@ -11,6 +11,10 @@
 #import "ProtocolCell.h"
 #import "HttpRequest.h"
 #import "ProtocolPurchaseModel.h"
+#import "ProtocolRentPactModel.h"
+#import "ProtocolReserveModel.h"
+#import "PurchaseDetailController.h"
+#import "RentPactDetailController.h"
 
 @interface ProtocolController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -29,12 +33,20 @@
 @implementation ProtocolController
 
 - (void)viewDidLoad {
+    _dataArray = [NSMutableArray new];
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self createNavigation];
     [self createTableView];
-    [self createData];
+    [self createDataWithURL:[NSString stringWithFormat:ProtocolEnter_URL,@"WANGYAN7274"]ModelName:[NSString stringWithFormat:@"%@",[ProtocolPurchaseModel class]]];
     [self createMenu];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (NSArray *)titleNameArray
@@ -47,20 +59,35 @@
 
 - (void)createTableView
 {
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
 }
 
-- (void)createData
+- (void)createDataWithURL:(NSString *)url ModelName:(NSString *)modelName
 {
-    [HttpRequest Get:[NSString stringWithFormat:ProtocolEnter_URL,@"WANGYAN7274"] complete:^(AFHTTPRequestOperation *operation, id reseponeObject, NSError *error) {
+    [HttpRequest Get:url complete:^(AFHTTPRequestOperation *operation, id reseponeObject, NSError *error) {
         
+        [_dataArray removeAllObjects];
         NSArray *ary = [NSJSONSerialization JSONObjectWithData:reseponeObject options:NSJSONReadingAllowFragments error:nil];
+        for (NSDictionary *dic in ary) {
+            if ([modelName isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolPurchaseModel class]]] ) {
+                
+                ProtocolPurchaseModel *model = [ProtocolPurchaseModel modelWithDictionary:dic];
+                [_dataArray addObject:model];
+            }else if ([modelName isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolRentPactModel class]]]){
+                ProtocolRentPactModel *model = [ProtocolRentPactModel modelWithDictionary:dic];
+                [_dataArray addObject:model];
+            }else if ([modelName isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolReserveModel class]]]){
+                ProtocolReserveModel *model = [ProtocolReserveModel modelWithDictionary:dic];
+                [_dataArray addObject:model];
+            }
+            
+        }
         
-        NSLog(@"%@",ary);
-        
+        [_tableView reloadData];
     }];
 }
 
@@ -96,6 +123,11 @@
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
     
     self.navigationItem.rightBarButtonItems = @[addItem,searchItem];
+    
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
+    backButtonItem.title = @"";
+    
+    self.navigationItem.backBarButtonItem = backButtonItem;
 }
 
 - (void)searchClick:(UIButton *)button
@@ -175,11 +207,11 @@
     [self dismissMenuView];
     _isMenuPop = NO;
     if ([button.titleLabel.text isEqualToString:self.titleNameArray[0]]) {
-        NSLog(@"select:%@",button.titleLabel.text);
+        [self createDataWithURL:[NSString stringWithFormat:ProtocolEnter_URL,@"WANGYAN7274"]ModelName:[NSString stringWithFormat:@"%@",[ProtocolPurchaseModel class]]];
     }else if ([button.titleLabel.text isEqualToString:self.titleNameArray[1]]){
-        NSLog(@"select:%@",button.titleLabel.text);
+        [self createDataWithURL:[NSString stringWithFormat:ProtocolRentPact_URL,@"WANGYAN7274"]ModelName:[NSString stringWithFormat:@"%@",[ProtocolRentPactModel class]]];
     }else if ([button.titleLabel.text isEqualToString:self.titleNameArray[2]]){
-        NSLog(@"select:%@",button.titleLabel.text);
+        [self createDataWithURL:[NSString stringWithFormat:ProtocolReserve_URL,@"WANGYAN7274"]ModelName:[NSString stringWithFormat:@"%@",[ProtocolReserveModel class]]];
     }
 }
 
@@ -214,22 +246,48 @@
     ProtocolCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProtocolCell"];
     if (cell == nil) {
         cell = [[ProtocolCell alloc] init];
-        CGFloat w_house = [StringSize getWidth:cell.houseNumberLabel.text Size:CGSizeMake(CGFLOAT_MAX, 17) Font:13];
-        cell.houseNumberLabel.frame = CGRectMake(SCREEN_WIDTH*0.5, 8, w_house, 17);
         
-        CGFloat w_time = [StringSize getWidth:cell.TimeLeftLabel.text Size:CGSizeMake(CGFLOAT_MAX, 17) Font:13];
-        cell.TimeLeftLabel.frame = CGRectMake(SCREEN_WIDTH*0.5, 8, w_time, 17);
-        
-        CGFloat w_tel = [StringSize getWidth:cell.telLabel.text Size:CGSizeMake(CGFLOAT_MAX, 17) Font:13];
-        cell.houseNumberLabel.frame = CGRectMake(SCREEN_WIDTH*0.5, 8, w_tel, 17);
     }
+    if ([[NSString stringWithFormat:@"%@",[_dataArray[indexPath.row] class]] isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolPurchaseModel class]]]) {
+        ProtocolPurchaseModel *model = _dataArray[indexPath.row];
+        cell.purchaseModel = model;
+    }else if ([[NSString stringWithFormat:@"%@",[_dataArray[indexPath.row] class]] isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolRentPactModel class]]]){
+        ProtocolRentPactModel *model = _dataArray[indexPath.row];
+        cell.rentPactModel = model;
+    }else if ([[NSString stringWithFormat:@"%@",[_dataArray[indexPath.row] class]] isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolReserveModel class]]]){
+        ProtocolReserveModel *model = _dataArray[indexPath.row];
+        cell.reserveModel = model;
+    }else{
+        cell.purchaseModel = nil;
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 108;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[NSString stringWithFormat:@"%@",[_dataArray[indexPath.row] class]] isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolPurchaseModel class]]]) {
+        ProtocolPurchaseModel *model = _dataArray[indexPath.row];
+        PurchaseDetailController *detailController = [PurchaseDetailController new];
+        detailController.purchaseNo = model.purchaseNo;
+        [self.navigationController pushViewController:detailController animated:YES];
+    }else if ([[NSString stringWithFormat:@"%@",[_dataArray[indexPath.row] class]] isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolRentPactModel class]]]){
+        ProtocolRentPactModel *model = _dataArray[indexPath.row];
+        RentPactDetailController *detailController = [RentPactDetailController new];
+        detailController.rentNo = model.rentNo;
+        [self.navigationController pushViewController:detailController animated:YES];
+        
+    }else if ([[NSString stringWithFormat:@"%@",[_dataArray[indexPath.row] class]] isEqualToString:[NSString stringWithFormat:@"%@",[ProtocolReserveModel class]]]){
+        ProtocolReserveModel *model = _dataArray[indexPath.row];
+        
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
