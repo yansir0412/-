@@ -240,14 +240,20 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="备注：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVt-2J-uwW">
-                        <rect key="frame" x="15" y="561.5" width="297" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVt-2J-uwW">
+                        <rect key="frame" x="15" y="561.5" width="297" height="31.5"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="297" id="998-4F-cDI"/>
                             <constraint firstAttribute="height" constant="21" id="mhn-5W-UhP"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mhn-5W-UhP"/>
+                            </mask>
+                        </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nlr-ht-Fgb">
                         <rect key="frame" x="0.0" y="434.5" width="320" height="30"/>
@@ -270,7 +276,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpt-GS-rTg">
-                        <rect key="frame" x="0.0" y="590.5" width="320" height="30"/>
+                        <rect key="frame" x="0.0" y="601" width="320" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户签字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFC-1q-Udn">
                                 <rect key="frame" x="8" y="5" width="56" height="21"/>
@@ -290,7 +296,7 @@
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PcR-T2-Cta">
-                        <rect key="frame" x="0.0" y="620.5" width="320" height="111.5"/>
+                        <rect key="frame" x="0.0" y="631" width="320" height="101"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -354,6 +360,30 @@
                     <constraint firstItem="PcR-T2-Cta" firstAttribute="top" secondItem="cpt-GS-rTg" secondAttribute="bottom" id="ztE-ZF-ZGS"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="J48-CF-3gx" id="92o-Sp-hf4"/>
+                <outlet property="attrImageView" destination="PcR-T2-Cta" id="qdC-7O-WF2"/>
+                <outlet property="depositLabel" destination="Kw5-Fx-iaV" id="T9A-jn-22t"/>
+                <outlet property="endTimeLabel" destination="9Lg-Af-b3r" id="PbD-O3-I0F"/>
+                <outlet property="floorLabel" destination="gxm-AL-juc" id="odR-GU-ufH"/>
+                <outlet property="houseStyleLabel" destination="faD-ze-CJV" id="Y9V-HD-3qt"/>
+                <outlet property="idCardLabel" destination="Yrt-3a-SVd" id="U0D-I9-YrL"/>
+                <outlet property="leaveTimeLabel" destination="W7Z-Qm-Kgt" id="Fto-mA-rP9"/>
+                <outlet property="nameLabel" destination="I4G-kB-2Tq" id="2aT-gT-0h1"/>
+                <outlet property="numberLabel" destination="EqE-IS-ZIl" id="2ua-gB-m8k"/>
+                <outlet property="pactNatureLabel" destination="g90-K8-quV" id="FIj-5T-aoa"/>
+                <outlet property="payWayLabel" destination="ZBw-lq-PPd" id="lNp-XO-KiY"/>
+                <outlet property="periodLabel" destination="Ckd-WG-cv2" id="7Cs-dh-Gk1"/>
+                <outlet property="remarkLabel" destination="nVt-2J-uwW" id="3qL-Ag-VQx"/>
+                <outlet property="rentNoLabel" destination="GFD-z7-4Lr" id="sFS-Xd-G4S"/>
+                <outlet property="rentPriceLabel" destination="oiL-cq-rFr" id="KIc-kj-JnM"/>
+                <outlet property="renter_nameLabel" destination="V4J-3d-sjP" id="lyb-LW-F6Q"/>
+                <outlet property="roomNoLabel" destination="HTe-DA-vhl" id="YbC-K0-NmX"/>
+                <outlet property="sexLabel" destination="Tzg-vd-C03" id="8Sf-dq-2fs"/>
+                <outlet property="squareLabel" destination="uyX-Kk-4p8" id="eSM-PP-Tok"/>
+                <outlet property="startTimeLabel" destination="fkw-vI-KVX" id="kLf-4b-5o5"/>
+                <outlet property="telLabel" destination="whB-t5-0E0" id="oA1-bN-U8u"/>
+            </connections>
             <point key="canvasLocation" x="278" y="389.5"/>
         </tableViewCell>
     </objects>

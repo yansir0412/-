@@ -24,6 +24,7 @@
 		041EED771CE1DA2200DF6D8B /* RentPactDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED761CE1DA2200DF6D8B /* RentPactDetailController.m */; };
 		041EED7B1CE1DB5D00DF6D8B /* RentPactDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED791CE1DB5D00DF6D8B /* RentPactDetailCell.m */; };
 		041EED7C1CE1DB5D00DF6D8B /* RentPactDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041EED7A1CE1DB5D00DF6D8B /* RentPactDetailCell.xib */; };
+		041EED7F1CE2BEC900DF6D8B /* RentPactDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EED7E1CE2BEC900DF6D8B /* RentPactDetailModel.m */; };
 		044F02AD1CD84D680004D619 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02AC1CD84D680004D619 /* main.m */; };
 		044F02B01CD84D680004D619 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02AF1CD84D680004D619 /* AppDelegate.m */; };
 		044F02B31CD84D680004D619 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F02B21CD84D680004D619 /* ViewController.m */; };
@@ -168,6 +169,8 @@
 		041EED781CE1DB5D00DF6D8B /* RentPactDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentPactDetailCell.h; sourceTree = "<group>"; };
 		041EED791CE1DB5D00DF6D8B /* RentPactDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentPactDetailCell.m; sourceTree = "<group>"; };
 		041EED7A1CE1DB5D00DF6D8B /* RentPactDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentPactDetailCell.xib; sourceTree = "<group>"; };
+		041EED7D1CE2BEC900DF6D8B /* RentPactDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentPactDetailModel.h; sourceTree = "<group>"; };
+		041EED7E1CE2BEC900DF6D8B /* RentPactDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentPactDetailModel.m; sourceTree = "<group>"; };
 		044F02A81CD84D680004D619 /* 管家.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "管家.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		044F02AC1CD84D680004D619 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		044F02AE1CD84D680004D619 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -427,6 +430,8 @@
 				041EED651CE1906D00DF6D8B /* ProtocolRentPactModel.m */,
 				041EED671CE1912600DF6D8B /* ProtocolReserveModel.h */,
 				041EED681CE1912600DF6D8B /* ProtocolReserveModel.m */,
+				041EED7D1CE2BEC900DF6D8B /* RentPactDetailModel.h */,
+				041EED7E1CE2BEC900DF6D8B /* RentPactDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -929,6 +934,7 @@
 				041EED631CE182DB00DF6D8B /* ProtocolPurchaseModel.m in Sources */,
 				044F03A71CDAF28D0004D619 /* NSString+URLCode.m in Sources */,
 				044F038F1CD87BE50004D619 /* FunctionalButton.m in Sources */,
+				041EED7F1CE2BEC900DF6D8B /* RentPactDetailModel.m in Sources */,
 				041EED2E1CE0378800DF6D8B /* ProtocolController.m in Sources */,
 				044F03A11CDAE5700004D619 /* ContactsController.m in Sources */,
 				044F03DD1CDB53600004D619 /* PinYinForObjc.m in Sources */,

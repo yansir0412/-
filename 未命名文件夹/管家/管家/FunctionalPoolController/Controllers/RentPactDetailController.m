@@ -9,6 +9,7 @@
 #import "RentPactDetailController.h"
 #import "PrefixHeader.pch"
 #import "RentPactDetailCell.h"
+#import "RentPactDetailModel.h"
 
 @interface RentPactDetailController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -33,7 +34,22 @@
 {
     [HttpRequest Get:[NSString stringWithFormat:ProtocolRentPactDetail_URL,_rentNo] complete:^(AFHTTPRequestOperation *operation, id reseponeObject, NSError *error) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:reseponeObject options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"%@",dic);
+        RentPactDetailModel *model = [[RentPactDetailModel alloc] init];
+        [dic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if ([key isEqualToString:@"rentPact"]) {
+                [model setValuesForKeysWithDictionary:obj];
+            }else if ([key isEqualToString:@"roomShow"]){
+                [model setValuesForKeysWithDictionary:obj];
+                [model setValue:obj[@"name"] forKey:@"renter_name"];
+            }else if ([key isEqualToString:@"renter"]){
+                [model setValuesForKeysWithDictionary:obj];
+                [model setValue:obj[@"name"] forKey:@"name"];
+            }else if ([key isEqualToString:@"attrList"]){
+                model.attrList = obj;
+            }
+        }];
+        [_dataArray addObject:model];
+        [_tableView reloadData];
     }];
 }
 
@@ -47,13 +63,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return _dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RentPactDetailCell *cell = [RentPactDetailCell new];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    RentPactDetailModel *model = _dataArray[indexPath.row];
+    cell.model = model;
     return cell;
 }
 
